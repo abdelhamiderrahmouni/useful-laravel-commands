@@ -9,6 +9,29 @@
 
 ------
 # Useful Laravel Commands
+A collection of useful Laravel commands to enhance your development workflow.
+
+## Usage
+### Password reset
+To reset the password for a user, you can use the following command:
+
+```bash
+php artisan reset-password {email}
+```
+Replace `{email}` with the email address of the user whose password you want to reset.
+The default password will be set to `password`.
+
+To change the default password, you can use the command as follows:
+
+```bash
+php artisan reset-password {email} {new_password}
+```
+
+if you want to change the login used to find the user, you can use the command as follows:
+The default login is email
+```bash
+php artisan reset-password {login} {new_password} --login={column_name} 
+```
 
 
 ## Contributing
