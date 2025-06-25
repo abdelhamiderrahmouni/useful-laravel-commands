@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace UsefulLaravelCommands\Console\Commands;
 
 use App\Models\User;
 use Illuminate\Console\Command;
@@ -13,7 +13,7 @@ class ResetUserPassword extends Command
      *
      * @var string
      */
-    protected $signature = 'users:reset-password 
+    protected $signature = 'reset-password 
                             {login : The user login (email by default)}
                             {password=password : The new password (default: password)}
                             {--login=email : The login column to search by (default: email)}';
@@ -96,12 +96,11 @@ class ResetUserPassword extends Command
     {
         $this->newLine();
         $this->line('📋 <comment>Password Reset Summary:</comment>');
-        $this->line("👤 User: {$user->name}");
-        $this->line("📧 Email: {$user->email}");
         $this->line("🔍 Found by: {$loginColumn}");
+        $this->line("📧 ". str($loginColumn)->title() .": {$user->{$loginColumn}}");
         $this->line("🔑 New Password: {$password}");
         $this->newLine();
 
-        return $this->confirm('Are you sure you want to reset this user\'s password?', false);
+        return $this->confirm('Are you sure you want to reset this user\'s password?', true);
     }
 }
