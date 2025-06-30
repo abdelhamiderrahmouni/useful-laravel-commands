@@ -12,11 +12,13 @@
     "require": {
         "php": "^8.2.0",
         "guzzlehttp/guzzle": "^7.5.1",
-        "laravel/framework": "^10.0|^11.0|^12.0",
-        "illuminate/database": "^10.0|^11.0|^12.0",
-        "illuminate/support": "^10.0|^11.0|^12.0",
         "illuminate/console": "^10.0|^11.0|^12.0",
-        "illuminate/filesystem": "^10.0|^11.0|^12.0"
+        "illuminate/database": "^10.0|^11.0|^12.0",
+        "illuminate/filesystem": "^10.0|^11.0|^12.0",
+        "illuminate/support": "^10.0|^11.0|^12.0",
+        "intervention/image": "^3.11",
+        "joetannenbaum/chewie": "^0.1.11",
+        "laravel/framework": "^10.0|^11.0|^12.0"
     },
     "require-dev": {
         "laravel/pint": "^1.13.8",
