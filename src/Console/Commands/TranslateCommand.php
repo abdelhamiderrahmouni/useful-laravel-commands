@@ -207,13 +207,17 @@ class TranslateCommand extends Command
         // Handle JSON files
         if (isset($filesForIdentifier['json'])) {
             $jsonPath = $filesForIdentifier['json'];
-            $translations = array_merge($translations, json_decode(File::get($jsonPath), true) ?: []);
+            $jsonData = json_decode(File::get($jsonPath), true) ?: [];
+            $translations = [...$translations, ...$jsonData];
         }
 
         // Handle PHP files
         if (isset($filesForIdentifier['php'])) {
             foreach ($filesForIdentifier['php'] as $phpPath) {
-                $translations = array_merge($translations, require $phpPath);
+                $phpData = require $phpPath;
+                if (is_array($phpData)) {
+                    $translations = [...$translations, ...$phpData];
+                }
             }
         }
 
